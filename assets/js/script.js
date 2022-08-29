@@ -1,43 +1,93 @@
+var todaysDate = moment().format("YYYYMMDD")
+//console.log(todaysDate);
+
+// Initialize variable - Array to hold values
+var aryDayScheduler = [{"date":  todaysDate,
+"time": 8,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 9,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 10,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 11,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 12,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 13,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 14,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 15,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 16,
+"task": ""
+},
+{"date":  todaysDate,
+"time": 17,
+"task": ""
+}]
+
+var storageDayScheduler = getStoredScheduler(todaysDate)
+
+
 $('#currentDay').text(moment().format("MMM Do YY"));
 
-var curHour = moment().format("HH")
+var ccurHour = moment().format("HH");  // Return string expression
+var nCurHour = parseInt(ccurHour);     // Convert Hour to Numeric
 
-for (var nId=7; nId<=9; nId++) {   // nId<=17; nId++) {
+for (var nId=8; nId<=17; nId++) {      // nId<=17; nId++) {
 
     setId = '#hour_' + (nId) ;
     console.log(setId);
 
-    if (nId<curHour) {
+    if (nId<nCurHour) {
         $(setId).addClass('past');
-        break;
-    } else if (nId=curHour) {
+    } else if (nId==nCurHour) {
         $(setId).addClass('present');
-        break;
-    } else if (nId>curHour) {
-        // nId > curHour
+    } else if (nId>nCurHour) {
         $(setId).addClass('future');
-        break;
     }
 
 }
 
-//console.log( curTime);
 
+// 
+$(".saveBtn").on("click", function() {
 
+    var id =  $(this).attr('id');
+    
+    //console.log(text);
+    //console.log(id);
 
-/*
-.past {
-  background-color: #d3d3d3;
-  color: white;
+    textId = "#hour_" + id.substr(5,2)
+    var text = $(textId).value ;
+
+})
+
+// Get information stored in localStorage
+function getStoredScheduler(pdToday) {
+    var storedlocalStorage = localStorage.getItem("dailyPlanner");
+
+    if (storedlocalStorage != null) {
+        savedPlanner = JSON.parse(storedlocalStorage) ;
+    } else {
+        savedPlanner = [];
+    }
+    
 }
-
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-*/
