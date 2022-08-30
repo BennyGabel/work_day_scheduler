@@ -24,27 +24,43 @@ Will store activities for a work-day - 1 day only - 9 hours (9 to 17 inclusive)
 # How to use this project 
 The website works with moment.js API
 The website will ONLY store 1 day (9 hours) in local storage. (Refer to Technical Aspects)
+Project's screenshot can be found on:
+https://github.com/BennyGabel/work_day_scheduler/blob/main/assets/screenshots/work_day_scheduler.jpg
 
 
 # Technical aspects
 HTML
 -----------------------------------------------------------------------------------------------
-1 Additions regarding divs 
+* Additions regarding divs 
   - Container
   - row time-block  (9 divs)
-    * Time
-    * Task           id='hour_#'
-    * Save Button    id='save_#'
+    > Time
+    > Task           id='hour_#'
+    > Save Button    id='save_#'
 
 JS
 -----------------------------------------------------------------------------------------------
-1 Gets today's date from moment.js
- Creates 
+* Uses moment.js API
+  - Extract today's date, format YYYYMMDD
+  - Current hour
+* Creates Array of tasks. Array will store:
+  - Date
+  - Time
+  - Tasks
+* Assign classes (past, present, future) to time-bocks (divs) based on current hour.
+* Extract information stored in localStorage - "dailyPlanner"   Function getStoredScheduler(todaysDate)
+  - getStoredScheduler(todaysDate)
+    > If it is empty, will work with Array pre-set  << aryDayScheduler >>
+    > If date (in localStorage) matches the current day, will load values and display in screen
+    > If date (in localStorage) does not match the current day, will empty out information stored for "dailyPlanner" and will continue working with pre-set Array.
+  - displayWorkDay()
+    > Display tasks from Array in corresponding hours
+* When save button is clicked, following events will happen:
+  - Extract id from svaed-button clicked       save_#  (where # represetns hour/time selected)
+  - Calculate the Id for the textArea assigned hour_#
+  - Extract the information typed by the user for that hour.
+  - Replace information in the array, for the corresponding hour.
+  - Update information in localStorage
 
-2) When the website is called for first time, will check localStorage information
-   - If it is empty (for "dailyPlanner"), will work with Array pre-set  << aryDayScheduler >>
-   - If date (in localStorage) matches the current day, will load values and display in screen
-   - If date matches the current day, will load values and display in screen
-If the website is called in a future dayit is 
 
 

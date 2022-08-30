@@ -48,21 +48,17 @@ var aryDayScheduler = [{
     "task": ""
 }]
 
-// Look/Extract from localStorage
-var storageDayScheduler = getStoredScheduler(todaysDate)
-// if (storageDayScheduler !== []) {
-if (storageDayScheduler.length>0) {
-    aryDayScheduler = storageDayScheduler;
-    displayWorkDay();
-}
 
 
+// Assign today's date to Id currentDay
 $('#currentDay').text(moment().format("MMM Do YY"));
 
+// Extract curremt hour
 var ccurHour = moment().format("HH");  // Return string expression
 var nCurHour = parseInt(ccurHour);     // Convert Hour to Numeric
 
-for (var nId = 8; nId <= 17; nId++) {      // nId<=17; nId++) {
+// Assign classes (past, present, future) to time-bocks based on current hour
+for (var nId = 9; nId <= 17; nId++) {      // nId<=17; nId++) {
 
     setId = '#hour_' + (nId);
     console.log(setId);
@@ -75,6 +71,14 @@ for (var nId = 8; nId <= 17; nId++) {      // nId<=17; nId++) {
         $(setId).addClass('future');
     }
 
+}
+
+// Look/Extract from localStorage
+var storageDayScheduler = getStoredScheduler(todaysDate)
+// if (storageDayScheduler !== []) {
+if (storageDayScheduler.length>0) {
+    aryDayScheduler = storageDayScheduler;
+    displayWorkDay();
 }
 
 $(".saveBtn").on("click", function (event) {
