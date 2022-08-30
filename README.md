@@ -56,7 +56,7 @@ JS
   - displayWorkDay()
     > Display tasks from Array in corresponding hours
 * When save button is clicked, following events will happen:
-  - Extract id from svaed-button clicked       save_#  (where # represetns hour/time selected)
+  - Extract id from save-button clicked       save_#  (where # represents hour/time selected)
   - Calculate the Id for the textArea assigned hour_#
   - Extract the information typed by the user for that hour.
   - Replace information in the array, for the corresponding hour.
