@@ -21,4 +21,30 @@ link to the repository:  https://github.com/BennyGabel/work_day_scheduler/tree/m
 # description
 Will store activities for a work-day - 1 day only - 9 hours (9 to 17 inclusive)
 
+# How to use this project 
+The website works with moment.js API
+The website will ONLY store 1 day (9 hours) in local storage. (Refer to Technical Aspects)
+
+
+# Technical aspects
+HTML
+-----------------------------------------------------------------------------------------------
+1 Additions regarding divs 
+  - Container
+  - row time-block  (9 divs)
+    * Time
+    * Task           id='hour_#'
+    * Save Button    id='save_#'
+
+JS
+-----------------------------------------------------------------------------------------------
+1 Gets today's date from moment.js
+ Creates 
+
+2) When the website is called for first time, will check localStorage information
+   - If it is empty (for "dailyPlanner"), will work with Array pre-set  << aryDayScheduler >>
+   - If date (in localStorage) matches the current day, will load values and display in screen
+   - If date matches the current day, will load values and display in screen
+If the website is called in a future dayit is 
+
 
