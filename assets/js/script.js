@@ -114,7 +114,9 @@ $(".saveBtn").on("click", function (event) {
 function getStoredScheduler(pdToday) {
     var storedlocalStorage = localStorage.getItem("dailyPlanner");
 
-    if (storedlocalStorage == 'null' ) {
+    if (storedlocalStorage == 'null')  {
+        savedPlanner = [];
+    } else if (storedlocalStorage == null) {
         savedPlanner = [];
     } else {
         savedPlanner = JSON.parse(storedlocalStorage);

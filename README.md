@@ -15,6 +15,10 @@ WHEN I refresh the page
 THEN the saved events persist
 
 # work_day_scheduler
-Day Planner
+link to my project:      https://bennygabel.github.io/work_day_scheduler/
+link to the repository:  https://github.com/BennyGabel/work_day_scheduler/tree/main
+
+# description
+Will store activities for a work-day - 1 day only - 9 hours (9 to 17 inclusive)
 
 
